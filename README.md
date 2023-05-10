@@ -20,11 +20,11 @@ docker-compose up -d; docker-compose ps; docker-compose logs -f
 docker-compose up --build -d; docker-compose ps; docker-compose logs -f
 ```
 ```
-docker-compose exec ssh-server bash
+docker-compose exec ubuntu-sshd bash
 ```
 ###### docker container ip
 ```
-docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-server
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ubuntu-sshd
 ```
 #### ssh access info
 ubuntu / ubuntu
