@@ -3,6 +3,9 @@
 ## ubuntu-sshd(ssh server)
 #### docker build
 ```
+docker build --tag anti1346/ubuntu2204:sshd --no-cache .
+```
+```
 docker build --tag anti1346/ubuntu2204:sshd --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu --no-cache .
 ```
 #### docker-compose build
