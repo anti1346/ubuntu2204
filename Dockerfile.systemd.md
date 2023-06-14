@@ -3,7 +3,10 @@ ubuntu systemd
 
 ##### docker build
 ```
-docker build --tag anti1346/ubuntu2204:systemd --no-cache .
+docker build --tag anti1346/ubuntu2204:systemd . --no-cache
+```
+```
+docker build --tag anti1346/ubuntu2204:systemd --build-arg SSH_ROOT_PASSWORD=rootpw -f ./Dockerfile .
 ```
 ##### docker push
 ```
@@ -24,10 +27,6 @@ docker run -it --rm --privileged --name ubuntu-systemd anti1346/ubuntu2204:syste
 
 
 ## docker-ubuntu-sshd(ssh server)
-#### docker build
-```
-docker build --tag anti1346/ubuntu2204:systemd --build-arg SSH_ROOT_PASSWORD=rootpw ./Dockerfile
-```
 
 #### docker-compose build
 ```
