@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+
+  ubuntu-sshd:
+    build:
+      context: .
+      args:
+        SSH_USER: ${SSH_USER}
+        SSH_PASSWORD: ${SSH_PASSWORD}
+    image: anti1346/ubuntu2204:sshd
+    container_name: ubuntu-sshd
+    hostname: ubuntu-sshd
+    command: /usr/sbin/sshd -D
+    ports:
+      - 2233:22

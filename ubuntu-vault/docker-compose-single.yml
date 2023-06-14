@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  vault-server:
+    image: vault:latest
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=vault-plaintext-root-token
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - "8200:8200"
