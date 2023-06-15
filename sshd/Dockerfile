@@ -3,6 +3,7 @@ FROM ubuntu:22.04
 LABEL website="sangchul.kr"
 
 ARG DEBIAN_FRONTEND=noninteractive
+
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD:-root}
 ARG SSH_USER=${SSH_USER:-ubuntu}
 ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
@@ -10,17 +11,19 @@ ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
 ENV SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
 ENV SSH_USER=${SSH_USER}
 ENV SSH_PASSWORD=${SSH_PASSWORD}
+ENV TZ=Asia/Seoul
 
 USER root
 
+RUN echo $TZ > /etc/timezone
+
+# RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
 RUN apt-get update -qq \
     && apt-get install -qq -y openssh-server \
         sudo \
-        ssh \
-        curl \
+        ssh curl \
         # aptitude  \
-        # net-tools \
-        # iputils-ping \
+        # net-tools iputils-ping traceroute \
         # vim git \
     && apt-get clean -qq autoclean \
     && apt-get autoremove -qq --yes \
