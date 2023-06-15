@@ -1,33 +1,32 @@
-# ubuntu-systemd
-ubuntu systemd
+# docker systemd
 
+## docker
 ##### docker build
 ```
 docker build --tag anti1346/ubuntu2204:systemd --no-cache .
+```
+```
+docker build --tag anti1346/ubuntu2204:systemd --build-arg SSH_ROOT_PASSWORD=rootpw -f ./Dockerfile .
 ```
 ##### docker push
 ```
 docker push anti1346/ubuntu2204:systemd
 ```
-##### 컨테이너 실행
-```
-docker run -it --rm anti1346/ubuntu2204:systemd
-```
 ##### Privileged 모드로 컨테이너 실행
 ```
-docker run --privileged --name ubuntu-systemd -d anti1346/ubuntu2204:systemd
+docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd
 ```
 ##### 컨테이너 접속(진입)
 ```
-docker exec -it ubuntu-systemd /bin/bash
+docker exec -it ubuntu-systemd bash
 ```
 
-## docker-ubuntu-sshd(ssh server)
-#### docker build
+##### Privileged 모드로 컨테이너 실행 후 컨테이너에 액세스(접속)
 ```
-docker build --tag anti1346/ubuntu2204:systemd --build-arg SSH_ROOT_PASSWORD=rootpw ./Dockerfile
+docker run -it --rm --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd bash
 ```
 
+## docker-compose
 #### docker-compose build
 ```
 docker-compose build --no-cache
