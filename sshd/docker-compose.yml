@@ -12,4 +12,4 @@ services:
     hostname: ubuntu-sshd
     command: /usr/sbin/sshd -D
     ports:
-      - 2233:22
+      - 2222:22

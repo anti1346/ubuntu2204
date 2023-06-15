@@ -12,14 +12,20 @@ docker build --tag anti1346/ubuntu2204:sshd --build-arg SSH_USER=ubuntu --build-
 ```
 docker push anti1346/ubuntu2204:sshd
 ```
-##### docker run
+##### docker run(SSH Server)
 ```
-docker run -d --name ubuntu-sshd anti1346/ubuntu2204:sshd
+docker run -d -p 2222:22 --name ubuntu-sshd anti1346/ubuntu2204:sshd
 ```
-##### docker exec
+##### ssh connect
 ```
-docker exec -it ubuntu-sshd bash
+ssh ubuntu@localhost -p 2222
 ```
+
+##### docker run & docker exec
+```
+docker run -it --rm --name ubuntu-sshd anti1346/ubuntu2204:sshd bash
+```
+
 
 ## docker-compose
 ##### docker-compose build

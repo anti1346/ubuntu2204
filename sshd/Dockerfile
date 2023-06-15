@@ -17,17 +17,18 @@ USER root
 
 RUN echo $TZ > /etc/timezone
 
-# RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-RUN apt-get update -qq \
+ RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
+    && apt-get update -qq \
     && apt-get install -qq -y openssh-server \
         sudo \
         ssh curl \
-        # aptitude  \
-        # net-tools iputils-ping traceroute \
+        aptitude  \
+        net-tools iputils-ping traceroute \
         # vim git \
     && apt-get clean -qq autoclean \
     && apt-get autoremove -qq --yes \
-    && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/*
+    && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/* \
+    && apt-get update -qq
 
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
     && cp -rf /etc/skel/.bash* /root/. \
