@@ -8,6 +8,14 @@ docker build --tag anti1346/ubuntu2204:latest --no-cache .
 ```
 docker build --tag anti1346/ubuntu2204:latest --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu --no-cache .
 ```
+##### docker push
+```
+docker push anti1346/ubuntu2204:latest
+```
+##### docker run
+```
+docker run -it --rm --name ubuntu anti1346/ubuntu2204:latest
+```
 #### docker-compose build
 (or)
 ```
