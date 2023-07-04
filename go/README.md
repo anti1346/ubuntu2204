@@ -9,6 +9,10 @@ docker build --tag anti1346/ubuntu2204:go --no-cache .
 ```
 docker build --build-arg ARCH=arm64 --tag anti1346/ubuntu2204:go-arm --no-cache .
 ```
+##### docker buildx
+```
+docker buildx build --platform linux/arm64,linux/amd64 --tag anti1346/ubuntu2204:go --push .
+```
 ##### docker push
 ```
 docker push anti1346/ubuntu2204:go
@@ -36,7 +40,7 @@ docker image tag anti1346/ubuntu2204:go-arm anti1346/ubuntu2204:go
 
 
 
-
+<!-- 
 ## docker-ubuntu-go(ssh server)
 #### docker-compose build
 ```
@@ -56,4 +60,45 @@ docker-compose exec ssh-server bash
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ubuntu-go
 ```
 #### ssh access info
-ubuntu / ubuntu
+ubuntu / ubuntu -->
+
+
+
+<!-- # ubuntu2204
+
+## ubuntu
+#### docker build
+```
+docker build --tag anti1346/ubuntu2204:go --no-cache .
+```
+```
+docker build --tag anti1346/ubuntu2204:go --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu --no-cache .
+```
+##### docker push
+```
+docker push anti1346/ubuntu2204:go
+```
+##### docker run
+```
+docker run -it --rm --name ubuntu-go anti1346/ubuntu2204:go
+```
+#### docker-compose build
+(or)
+```
+docker-compose build --no-cache
+```
+```
+docker-compose up -d; docker-compose ps; docker-compose logs -f
+```
+```
+docker-compose up --build -d; docker-compose ps; docker-compose logs -f
+```
+```
+docker-compose exec ubuntu-go bash
+```
+###### docker container ip
+```
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ubuntu
+```
+#### ssh access info
+ubuntu / ubuntu -->

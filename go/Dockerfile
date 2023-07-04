@@ -3,13 +3,14 @@ FROM ubuntu:22.04
 LABEL website="sangchul.kr"
 
 # 아키텍처 환경변수 설정
-ARG ARCH=amd64
-ARG DEBIAN_FRONTEND=noninteractive
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD:-root}
+ARG DEBIAN_FRONTEND=noninteractive
+ARG ARCH=amd64
+ARG GOLANG_VERSION 1.20.4
 
 # Go 설치를 위한 환경 변수 설정
-ENV ARCH $ARCH
 ENV SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
+ENV ARCH $ARCH
 ENV GOLANG_VERSION 1.20.4
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
