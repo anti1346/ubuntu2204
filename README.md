@@ -6,6 +6,9 @@
 docker build --tag anti1346/ubuntu2204:latest --no-cache .
 ```
 ```
+docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:latest . --no-cache
+```
+```
 docker build --tag anti1346/ubuntu2204:latest --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu --no-cache .
 ```
 ##### docker push
