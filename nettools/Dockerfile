@@ -14,16 +14,16 @@ ENV SSH_PASSWORD=${SSH_PASSWORD}
 USER root
 
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-    && apt-get update -qq \
-    && apt-get install -qq -y \
-        arping telnet inetutils-ping netcat apt-utils sudo dialog \
-        net-tools traceroute dnsutils \
-        ethtool tcpdump ipcalc \
-        curl wget vim \
-#         sudo git make \
-    && apt-get clean -qq autoclean \
-    && apt-get autoremove -qq --yes \
-    && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/*
+  && apt-get update -qq \
+  && apt-get install -qq -y \
+    arping telnet inetutils-ping netcat apt-utils sudo dialog \
+    net-tools traceroute dnsutils \
+    ethtool tcpdump ipcalc \
+    curl wget vim \
+    # sudo git make \
+  && apt-get clean -qq autoclean \
+  && apt-get autoremove -qq --yes \
+  && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/*
     
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
   && echo 'export PS1="\[\e[33m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\]:\[\033[01;31m\]\W\[\e[m\]$ "' >> ~/.bashrc
