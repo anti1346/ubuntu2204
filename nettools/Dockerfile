@@ -23,8 +23,9 @@ RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     # sudo git make \
   && apt-get clean -qq autoclean \
   && apt-get autoremove -qq --yes \
-  && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/*
-    
+  && rm -rf /var/lib/apt/lists /var/lib/dpkg/info /tmp/* /var/tmp/* \
+  && apt-get update -qq
+
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
   && echo 'export PS1="\[\e[33m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\]:\[\033[01;31m\]\W\[\e[m\]$ "' >> ~/.bashrc
 
@@ -32,7 +33,7 @@ RUN useradd -rm -d /home/$SSH_USER -s /bin/bash -G sudo $SSH_USER \
   && mkdir -m 700 /home/$SSH_USER/.ssh \
   && echo "$SSH_USER":"$SSH_PASSWORD" | chpasswd \
   && echo "$SSH_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-  
+
 WORKDIR /root
 
 CMD ["/bin/bash"]
