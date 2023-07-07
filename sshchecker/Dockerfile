@@ -30,11 +30,12 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get update -qq
 
-RUN sudo pip install dnspython
+RUN pip install dnspython
 
-RUN sudo ln -s /usr/bin/python3 /usr/bin/python
+RUN ln -s /usr/bin/python3 /usr/bin/python
 
-RUN git clone https://github.com/anti1346/SSL-Certificate-Verify.git .
+RUN git clone https://github.com/anti1346/SSL-Certificate-Verify.git /git-sshchecker
+    # && /git-sshchecker/ssl_certificate_expiration_date_checker_v2.py /sshchecker.py
 
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
     && cp -rf /etc/skel/.bash* /root/. \

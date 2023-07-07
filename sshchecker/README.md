@@ -15,7 +15,7 @@ docker inspect anti1346/ubuntu2204:sslchecker --format='{{.Architecture}}'
 
 ###### docker image architecture
 ```
-docker run -d -p 8080:80 --name sslchecker nginx
+docker run -d -p 8080:80 --name sslchecker anti1346/ubuntu2204:sslchecker
 ```
 
 ##### docker run & execute
