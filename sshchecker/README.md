@@ -8,14 +8,19 @@ docker buildx create --use
 docker buildx build --no-cache --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:sslchecker --push .
 ```
 
-##### docker run & exe
+###### docker image architecture
 ```
-docker run -it --rm --name sslchecker anti1346/ubuntu2204:sslchecker bash
+docker inspect anti1346/ubuntu2204:sslchecker --format='{{.Architecture}}'
 ```
 
 ###### docker image architecture
 ```
-docker inspect anti1346/ubuntu2204:sslchecker --format='{{.Architecture}}'
+docker run -d -p 8080:80 --name sslchecker nginx
+```
+
+##### docker run & execute
+```
+docker exec -it --rm --name sslchecker bash
 ```
 
 ###### docker container ip

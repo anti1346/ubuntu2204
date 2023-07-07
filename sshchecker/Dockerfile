@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM nginx:1.25
 
 LABEL website="sangchul.kr"
 
@@ -11,7 +11,8 @@ ENV TZ=Asia/Seoul
 USER root
 
 RUN apt-get update -qq \
-    && apt-get install -qq -y sudo \
+    && apt-get install -qq -y lsb-release \
+        sudo \
         curl \
         wget \
         ssh \
@@ -23,12 +24,17 @@ RUN apt-get update -qq \
         git \
         python3 \
         python3-pip \
+        python3-dnspython \
     && apt-get clean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && apt-get update -qq
 
 RUN sudo pip install dnspython
+
+RUN sudo ln -s /usr/bin/python3 /usr/bin/python
+
+RUN git clone https://github.com/anti1346/SSL-Certificate-Verify.git .
 
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
     && cp -rf /etc/skel/.bash* /root/. \
