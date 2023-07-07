@@ -35,5 +35,5 @@ docker inspect sslchecker --format='{{range .NetworkSettings.Networks}}{{.IPAddr
 
 #### web browser
 ```
-locahost:8080
+http://locahost:8080
 ```
