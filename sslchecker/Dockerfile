@@ -46,7 +46,6 @@ RUN pip install dnspython
 # Clone the SSL Certificate Verify repository
 RUN git clone https://github.com/anti1346/SSL-Certificate-Verify.git /sslchecker
 
-# Copy the script for running SSL Certificate Expiration Date Checker and starting Nginx
 COPY run_script.sh /sslchecker/run_script.sh
 
 RUN chmod +x /sslchecker/run_script.sh
