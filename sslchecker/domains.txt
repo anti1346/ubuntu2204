@@ -1,1 +1,3 @@
 www.nate.com
+example.com:443
+www.example.com:8443

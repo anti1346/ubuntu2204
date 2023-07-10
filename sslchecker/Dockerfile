@@ -14,16 +14,16 @@ USER root
 
 # Install required packages
 RUN apt-get update -qq \
-    && apt-get install -qq -y lsb-release \
-        sudo \
-        curl \
-        wget \
-        ssh \
-        vim \
-        procps \
-        net-tools \
-        iputils-ping \
-        dnsutils \
+    && apt-get install -qq -y sudo \
+        # lsb-release \
+        # curl \
+        # wget \
+        # ssh \
+        # vim \
+        # procps \
+        # net-tools \
+        # iputils-ping \
+        # dnsutils \
         git \
         python3 \
         python3-pip \
