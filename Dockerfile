@@ -23,7 +23,8 @@ RUN apt-get update -qq \
         locales \
     && apt-get clean \
     && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && apt-get update -qq
 
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
     && cp -rf /etc/skel/.bash* /root/. \
