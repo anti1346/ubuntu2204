@@ -14,12 +14,13 @@ RUN apt-get update -qq \
         curl \
         wget \
         ssh \
-        # vim \
-        # procps \
-        # net-tools \
-        # iputils-ping \
-        # dnsutils \
-        # git \
+        vim \
+        procps \
+        net-tools \
+        iputils-ping \
+        dnsutils \
+        git \
+        locales \
     && apt-get clean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
