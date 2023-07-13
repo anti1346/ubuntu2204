@@ -3,7 +3,7 @@
 ## ubuntu
 #### docker build
 ```
-docker build --tag anti1346/ubuntu2204:latest --no-cache .
+docker buildx create --use
 ```
 ```
 docker buildx build --no-cache --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:latest --push . 
