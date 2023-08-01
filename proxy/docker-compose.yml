@@ -5,8 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     image: anti1346/ubuntu2204:proxy
     container_name: ubuntu-proxy
     hostname: ubuntu-proxy
-    environment:
-      - SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
+    volumes:
+      - ./conf/squid.conf:/etc/squid/squid.conf
+      - ./conf/squid.conf:/etc/squid/squid.conf
+      - ./conf/squid.conf:/etc/squid/squid.conf
+    ports:
+      - 8080:3128
