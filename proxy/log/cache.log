@@ -1,0 +1,36 @@
+2023/08/01 06:46:05| Set Current Directory to /var/spool/squid
+2023/08/01 06:46:05| Creating missing swap directories
+2023/08/01 06:46:05| No cache_dir stores are configured.
+2023/08/01 06:46:05| Removing PID file (/run/squid.pid)
+2023/08/01 06:46:05| Set Current Directory to /var/spool/squid
+2023/08/01 06:46:05| Starting Squid Cache version 5.7 for x86_64-pc-linux-gnu...
+2023/08/01 06:46:05| Service Name: squid
+2023/08/01 06:46:05| Process ID 40
+2023/08/01 06:46:05| Process Roles: master worker
+2023/08/01 06:46:05| With 1048576 file descriptors available
+2023/08/01 06:46:05| Initializing IP Cache...
+2023/08/01 06:46:05| DNS Socket created at 0.0.0.0, FD 8
+2023/08/01 06:46:05| Adding nameserver 127.0.0.11 from /etc/resolv.conf
+2023/08/01 06:46:05| Adding ndots 1 from /etc/resolv.conf
+2023/08/01 06:46:05| Logfile: opening log daemon:/var/log/squid/access.log
+2023/08/01 06:46:05| Logfile Daemon: opening log /var/log/squid/access.log
+2023/08/01 06:46:05| Local cache digest enabled; rebuild/rewrite every 3600/3600 sec
+2023/08/01 06:46:05| Store logging disabled
+2023/08/01 06:46:05| Swap maxSize 0 + 262144 KB, estimated 20164 objects
+2023/08/01 06:46:05| Target number of buckets: 1008
+2023/08/01 06:46:05| Using 8192 Store buckets
+2023/08/01 06:46:05| Max Mem  size: 262144 KB
+2023/08/01 06:46:05| Max Swap size: 0 KB
+2023/08/01 06:46:05| Using Least Load store dir selection
+2023/08/01 06:46:05| Set Current Directory to /var/spool/squid
+2023/08/01 06:46:05| Finished loading MIME types and icons.
+2023/08/01 06:46:05| HTCP Disabled.
+2023/08/01 06:46:05| Pinger socket opened on FD 13
+2023/08/01 06:46:05| Squid plugin modules loaded: 0
+2023/08/01 06:46:05| Adaptation support is off.
+2023/08/01 06:46:05| Accepting HTTP Socket connections at conn2 local=0.0.0.0:3128 remote=[::] FD 11 flags=9
+2023/08/01 06:46:05| WARNING: BCP 177 violation. Detected non-functional IPv6 loopback.
+2023/08/01 06:46:05| pinger: Initialising ICMP pinger ...
+2023/08/01 06:46:05| pinger: ICMP socket opened.
+2023/08/01 06:46:05| pinger: ICMPv6 socket opened
+2023/08/01 06:46:06| storeLateRelease: released 0 objects

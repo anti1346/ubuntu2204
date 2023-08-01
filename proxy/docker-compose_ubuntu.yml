@@ -1,10 +1,11 @@
 version: '3.9'
 services:
-  squid-proxy:
-    image: anti1346/ubuntu2204:proxy
-    restart: always
-    container_name: squid-proxy
-    hostname: squid-proxy
+
+  squid:
+    image: ubuntu/squid:latest
+    restart: unless-stopped
+    container_name: squid
+    hostname: squid
     volumes:
       - ./conf/squid.conf:/etc/squid/squid.conf
       - ./conf/allowed_ips.txt:/etc/squid/allowed_ips.txt
