@@ -1,1 +1,5 @@
 #allowed_domains.txt
+.example.com
+.example.org
+.naver.com
+.google.com

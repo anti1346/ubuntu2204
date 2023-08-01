@@ -1,14 +1,10 @@
 version: '3.9'
 services:
-
-  ubuntu-proxy:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
+  squid-proxy:
     image: anti1346/ubuntu2204:proxy
-    container_name: ubuntu-proxy
-    hostname: ubuntu-proxy
+    restart: always
+    container_name: squid-proxy
+    hostname: squid-proxy
     volumes:
       - ./conf/squid.conf:/etc/squid/squid.conf
       - ./conf/allowed_ips.txt:/etc/squid/allowed_ips.txt
