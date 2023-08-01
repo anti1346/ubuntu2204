@@ -1,0 +1,10 @@
+/var/log/squid/*.log {
+    daily
+    dateext
+    missingok
+    rotate 30
+    compress
+    delaycompress
+    notifempty
+    create 640 proxy proxy
+}
