@@ -59,7 +59,7 @@ root / root
 
 
 
-
+<details>
 
 ##### docker build
 ```
@@ -85,3 +85,4 @@ docker exec -it ubuntu-systemd bash
 ```
 docker run -it --rm --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd bash
 ```
+</details>
