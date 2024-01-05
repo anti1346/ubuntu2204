@@ -30,10 +30,14 @@ docker exec -it ubuntu-systemd bash
 docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd
 ```
 
+#### ssh access info
+root / root
+
 <details>
 <summary>Docker Compose 코드</summary>
 ## docker-compose
 #### docker-compose build
+
 ```
 docker-compose build --no-cache
 ```
@@ -48,8 +52,7 @@ docker-compose up --build -d; docker-compose ps; docker-compose logs -f
 ```
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ssh-server
 ```
-#### ssh access info
-root / root
+
 </details>
 
 <details>
