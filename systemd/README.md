@@ -1,37 +1,35 @@
 # docker systemd
 
-## docker
-#### Docker Buildx 생성 및 활성화
+### Ubuntu Linux 22.04(systemd)
+##### Docker Buildx 생성 및 활성화
 ```
 docker buildx create --use
 ```
-####  다중 플랫폼 이미지 빌드 및 레지스트리 푸시(PUSH)
+##### 다중 플랫폼 이미지 빌드 및 레지스트리 푸시(PUSH)
 ```
 docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:systemd --no-cache --push .
 ```
-#### 이미지 풀(PULL)
+##### 이미지 풀(PULL)
 ```
 docker pull anti1346/ubuntu2204:systemd
 ```
-#### 빌드된 이미지의 아키텍처 확인
+##### 빌드된 이미지의 아키텍처 확인
 ```
 docker inspect anti1346/ubuntu2204:systemd --format='{{.Architecture}}'
 ```
-#### 컨테이너를 실행
+##### 컨테이너 실행(RUN)
 ```
 docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd
 ```
-#### 컨테이너 실행
+##### 컨테이너에 Bash 셸 실행(EXEC)
 ```
 docker exec -it ubuntu-systemd bash
 ```
-#### 컨테이너에 Bash 셸 실행
-```
-docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd
-```
 
 #### ssh access info
+```
 root / root
+```
 
 <details>
 <summary>Docker Compose 코드</summary>
