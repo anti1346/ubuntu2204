@@ -30,10 +30,8 @@ docker exec -it ubuntu-systemd bash
 docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:systemd
 ```
 
-
-
-
-
+<details>
+<summary>Docker Compose 코드</summary>
 ## docker-compose
 #### docker-compose build
 ```
@@ -52,15 +50,10 @@ docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 ```
 #### ssh access info
 root / root
-
-
-
-
-
-
+</details>
 
 <details>
-<summary>백업 코드</summary>
+<summary>README 백업</summary>
   
 ##### docker build
 ```
