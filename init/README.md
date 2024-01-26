@@ -2,17 +2,12 @@
 
 ## docker build
 ```
-docker build --tag anti1346/ubuntu-init:22.04 .
-```
-
-## docker tag change
-```
-docker image tag anti1346/ubuntu-init:22.04 anti1346/ubuntu-init:latest
+docker build -t anti1346/ubuntu2204:init --no-cache .
 ```
 
 ## docker container run
 ```
-docker run -d --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu-init:latest /sbin/init
+docker run -itd --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu2204:init
 ```
 
 ## entering a running docker container
