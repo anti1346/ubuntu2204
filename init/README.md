@@ -1,6 +1,6 @@
 # ubuntu-init
 
-### docker build
+### docker buildx
 ```
 docker buildx create --use
 ```
@@ -25,7 +25,7 @@ docker exec -it ubuntu-init bash
 ```
 
 <details>
-<summary>Docker 코드</summary>
+<summary>Docker Build 명령어</summary>
 
 ### docker build
 ```
