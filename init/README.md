@@ -1,14 +1,16 @@
 # ubuntu-init
 
-### docker buildx
+### docker buildx create
 ```
 docker buildx create --use
 ```
+
+### docker buildx build & push
 ```
 docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:init --no-cache --push .
 ```
 
-### docker container run
+### docker inspect
 ```
 docker inspect anti1346/ubuntu2204:init --format='{{.Architecture}}'
 ```
@@ -17,7 +19,6 @@ docker inspect anti1346/ubuntu2204:init --format='{{.Architecture}}'
 ```
 docker run -itd --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu2204:init
 ```
-
 
 ### entering a running docker container
 ```
