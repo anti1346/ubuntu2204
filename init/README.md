@@ -10,6 +10,11 @@ docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204
 
 ### docker container run
 ```
+docker inspect anti1346/ubuntu2204:init --format='{{.Architecture}}'
+```
+
+### docker container run
+```
 docker run -itd --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu2204:init
 ```
 

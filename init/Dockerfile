@@ -52,8 +52,5 @@ CMD ["/lib/systemd/systemd"]
 #####
 # docker buildx create --use
 # docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:init --no-cache --push .
-# docker pull anti1346/ubuntu2204:init
-# docker inspect anti1346/ubuntu2204:init --format='{{.Architecture}}'
 # docker run -d --privileged --name ubuntu-systemd anti1346/ubuntu2204:init
 # docker exec -it ubuntu-systemd bash
-
