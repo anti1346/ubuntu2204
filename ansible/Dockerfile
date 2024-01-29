@@ -45,10 +45,6 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# 다운로드할 Ansible 버전 및 URL 지정
-ARG ansible_version="v2.16.2"
-ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_version}.tar.gz"
-
 # Ansible 소스 다운로드 및 설치
 # https://releases.ansible.com/ansible
 # RUN curl -fsSL -o /tmp/ansible-latest.tar.gz https://releases.ansible.com/ansible/ansible-latest.tar.gz \
@@ -60,6 +56,11 @@ ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_
 
 # Ansible 소스 다운로드 및 압축 해제
 # https://github.com/ansible/ansible/tags
+
+# 다운로드할 Ansible 버전 및 URL 지정
+ARG ansible_version="v2.16.2"
+ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_version}.tar.gz"
+
 RUN curl -fsSL -o /tmp/ansible.tar.gz "$ansible_url" \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
     && rm /tmp/ansible.tar.gz \
