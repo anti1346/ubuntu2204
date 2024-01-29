@@ -8,6 +8,8 @@ services:
     privileged: true
     environment:
       - TZ=Asia/Seoul
+      # - http_proxy=http://Proxy_Server:3128
+      # - https_proxy=http://Proxy_Server:3128
     command: ["/lib/systemd/systemd"]
 
 # Add more configuration as needed
