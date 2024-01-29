@@ -1,4 +1,4 @@
-# ubuntu-init
+# ubuntu-ansible
 
 ### docker buildx create
 ```
@@ -17,12 +17,12 @@ docker inspect anti1346/ubuntu2204:ansible --format='{{.Architecture}}'
 
 ### docker container run
 ```
-docker run -itd --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu2204:ansible
+docker run -itd --privileged --name ubuntu-ansible --hostname ubuntu-ansible anti1346/ubuntu2204:ansible
 ```
 
 ### entering a running docker container
 ```
-docker exec -it ubuntu-init bash
+docker exec -it ubuntu-ansible bash
 ```
 
 <details>
@@ -39,11 +39,11 @@ docker pull anti1346/ubuntu2204:ansible
 
 ### docker container run
 ```
-docker run -itd --privileged --name ubuntu-init --hostname ubuntu-init anti1346/ubuntu2204:ansible
+docker run -itd --privileged --name ubuntu-ansible --hostname ubuntu-ansible anti1346/ubuntu2204:ansible
 ```
 
 ### entering a running docker container
 ```
-docker exec -it ubuntu-init bash
+docker exec -it ubuntu-ansible bash
 ```
 </details>
