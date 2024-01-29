@@ -6,7 +6,6 @@ LABEL website="sangchul.kr"
 
 # 환경 변수 설정
 ARG DEBIAN_FRONTEND=noninteractive
-
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD:-root}
 ARG SSH_USER=${SSH_USER:-ubuntu}
 ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
@@ -14,7 +13,6 @@ ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
 ENV SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
 ENV SSH_USER=${SSH_USER}
 ENV SSH_PASSWORD=${SSH_PASSWORD}
-
 ENV TZ=Asia/Seoul
 
 # 시간대 설정
@@ -27,6 +25,11 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
         sudo \
         apt-utils \
         aptitude \
+        python3 \
+        python3-pip \
+        build-essential \
+        libssl-dev \
+        libffi-dev \
         curl \
         dnsutils \
         iputils-ping \
@@ -41,13 +44,14 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Ansible 설치
-RUN add-apt-repository --yes --update ppa:ansible/ansible \
-    && apt-get update \
-    && apt-get install -y ansible \
-    && apt-get clean \
-    && apt-get autoremove -y \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Ansible 소스 다운로드 및 설치
+# https://releases.ansible.com/ansible
+RUN curl -fsSL -o /tmp/ansible-latest.tar.gz https://releases.ansible.com/ansible/ansible-latest.tar.gz \
+    && tar -xf /tmp/ansible-latest.tar.gz -C /tmp \
+    && cd /tmp/ansible-* \
+    && python3 setup.py install \
+    && cd / \
+    && rm -rf /tmp/ansible-*
 
 # SSH Configure Settings
 RUN mkdir /var/run/sshd && \
