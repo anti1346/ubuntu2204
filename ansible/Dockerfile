@@ -58,12 +58,12 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
 # https://github.com/ansible/ansible/tags
 
 # 다운로드할 Ansible 버전 및 URL 지정
-ARG ansible_version="v2.16.2"
-ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_version}.tar.gz"
+ARG ansible_version="2.16.2"
+ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/v${ansible_version}.tar.gz"
 
 RUN curl -fsSL -o /tmp/ansible.tar.gz ${ansible_url} \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
-    && cd /tmp/ansible-* \
+    && cd /tmp/ansible-{ansible_version} \
     && python3 setup.py install \
     && rm -rf /tmp/ansible.tar.gz /tmp/ansible-${ansible_version}
 
