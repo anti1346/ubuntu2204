@@ -3,9 +3,12 @@ services:
 
   ubuntu-init:
     image: anti1346/ubuntu2204:init
+    restart: always
     container_name: ubuntu-init
     hostname: ubuntu-init
     privileged: true
+    # tty: true  # Allocate a pseudo-TTY, required for systemd
+    # stdin_open: true  # Keep stdin open, required for systemd
     environment:
       - TZ=Asia/Seoul
       # - http_proxy=http://Proxy_Server:3128
