@@ -59,6 +59,7 @@ ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_
 #     && rm -rf /tmp/ansible-*
 
 # Ansible 소스 다운로드 및 압축 해제
+# https://github.com/ansible/ansible/tags
 RUN curl -fsSL -o /tmp/ansible.tar.gz "$ansible_url" \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
     && rm /tmp/ansible.tar.gz \
