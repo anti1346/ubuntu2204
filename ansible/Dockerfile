@@ -63,7 +63,7 @@ ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/v${ansible
 
 RUN curl -fsSL -o /tmp/ansible.tar.gz ${ansible_url} \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
-    && cd /tmp/ansible-{ansible_version} \
+    && cd /tmp/ansible-${ansible_version} \
     && python3 setup.py install \
     && rm -rf /tmp/ansible.tar.gz /tmp/ansible-${ansible_version}
 
