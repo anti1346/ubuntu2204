@@ -61,7 +61,7 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
 ARG ansible_version="v2.16.2"
 ARG ansible_url="https://github.com/ansible/ansible/archive/refs/tags/${ansible_version}.tar.gz"
 
-RUN curl -fsSL -o /tmp/ansible.tar.gz "$ansible_url" \
+RUN curl -fsSL -o /tmp/ansible.tar.gz ${ansible_url} \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
     && rm /tmp/ansible.tar.gz \
     && cd /tmp/ansible-${ansible_version} \
