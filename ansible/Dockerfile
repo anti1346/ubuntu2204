@@ -20,7 +20,7 @@ ENV TZ=Asia/Seoul
 # 시간대 설정
 RUN echo $TZ > /etc/timezone
 
-# 패키지 소스 업데이트 및 필요한 패키지 설치 및 Ansible 설치
+# 패키지 소스 업데이트 및 필요한 패키지 설치
 RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
     && apt-get update \
     && apt-get install -y \
@@ -36,10 +36,24 @@ RUN sed -i -e 's/kr.archive.ubuntu.com/mirror.kakao.com/g' -e 's/archive.ubuntu.
         telnet \
         traceroute \
         vim \
-        ansible \
+        software-properties-common \
     && apt-get clean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Ansible 설치
+RUN add-apt-repository --yes --update ppa:ansible/ansible \
+    && apt-get update \
+    && apt-get install -y ansible \
+    && apt-get clean \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# SSH Configure Settings
+RUN mkdir /var/run/sshd && \
+    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config && \
+    sed -i 's/#UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
 # root 사용자 설정
 RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd && \
@@ -53,12 +67,6 @@ RUN useradd -c "$SSH_USER" -m -d /home/$SSH_USER -s /bin/bash $SSH_USER && \
     echo "$SSH_USER:$SSH_PASSWORD" | chpasswd && \
     echo 'export PS1="\[\e[33m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\]:\[\033[01;31m\]\W\[\e[m\]$ "' >> /home/$SSH_USER/.bashrc && \
     echo "$SSH_USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
-# SSH Configure Settings
-RUN mkdir /var/run/sshd && \
-    sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
-    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config && \
-    sed -i 's/#UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
 # 작업 디렉토리 설정
 WORKDIR /ansible

@@ -17,7 +17,7 @@ docker inspect anti1346/ubuntu2204:ansible --format='{{.Architecture}}'
 
 ### docker container run
 ```
-docker run -itd --privileged --name ubuntu-ansible --hostname ubuntu-ansible anti1346/ubuntu2204:ansible
+docker run -d -p 2222:22 --name ubuntu-ansible anti1346/ubuntu2204:ansible
 ```
 
 ### entering a running docker container
