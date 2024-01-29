@@ -65,7 +65,8 @@ RUN curl -fsSL -o /tmp/ansible.tar.gz ${ansible_url} \
     && tar -xzf /tmp/ansible.tar.gz -C /tmp \
     && cd /tmp/ansible-${ansible_version} \
     && python3 setup.py install \
-    && rm -rf /tmp/ansible.tar.gz /tmp/ansible-${ansible_version}
+    && rm -rf /tmp/ansible.tar.gz /tmp/ansible-${ansible_version} \
+    && python3 -m pip install --user argcomplete
 
 # SSH Configure Settings
 RUN mkdir /var/run/sshd && \
