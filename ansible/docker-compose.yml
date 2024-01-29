@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+
+  ubuntu-ansible:
+    image: anti1346/ubuntu2204:ansible
+    restart: always
+    container_name: ubuntu-sshd
+    hostname: ubuntu-ansible
+    volumes:
+      - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
+    ports:
+      - "2222:22"
+    networks:
+      my_network:
+        ipv4_address: 172.19.0.201
+
+networks:
+  my_network:
+    name: my_network
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/24
