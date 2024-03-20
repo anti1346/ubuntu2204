@@ -10,6 +10,12 @@ services:
     image: anti1346/ubuntu2204:sshd
     container_name: ubuntu-sshd
     hostname: ubuntu-sshd
+    privileged: true
     command: /usr/sbin/sshd -D
     ports:
       - 2222:22
+    networks:
+      - ubuntu_net
+
+networks:
+  ubuntu_net:
