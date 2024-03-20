@@ -40,15 +40,6 @@ docker push anti1346/ubuntu2204:sshd
 ```
 docker run -d -p 2222:22 --name ubuntu-sshd anti1346/ubuntu2204:sshd
 ```
-##### ssh connect
-```
-ssh ubuntu@localhost -p 2222
-```
-
-##### docker run & docker exec
-```
-docker run -it --rm --name ubuntu-sshd anti1346/ubuntu2204:sshd bash
-```
 </details>
 
 
@@ -69,11 +60,19 @@ docker-compose up -d; docker-compose ps; docker-compose logs -f
 ```
 docker-compose exec ssh-server bash
 ```
+</details>
+
+##### ssh connect
+```
+ssh ubuntu@localhost -p 2222
+```
+##### docker run & docker exec
+```
+docker run -it --rm --name ubuntu-sshd anti1346/ubuntu2204:sshd bash
+```
 ##### docker container ip
 ```
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ubuntu-sshd
 ```
 ##### ssh access info
 ubuntu / ubuntu
-
-</details>
