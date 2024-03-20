@@ -14,12 +14,12 @@ docker inspect anti1346/ubuntu2204:sshd --format='{{.Architecture}}'
 ```
 ### docker container run
 ```
+docker run -d --privileged --name ubuntu-sshd --hostname ubuntu-sshd anti1346/ubuntu2204:sshd
+```
+```
 docker run -itd --privileged --name ubuntu-sshd --hostname ubuntu-sshd anti1346/ubuntu2204:sshd
 ```
-### entering a running docker container
-```
-docker exec -it ubuntu-sshd bash
-```
+
 
 <details>
 <summary>docker build</summary>
@@ -62,10 +62,6 @@ docker-compose exec ssh-server bash
 ```
 </details>
 
-##### ssh connect
-```
-ssh ubuntu@localhost -p 2222
-```
 ##### docker run & docker exec
 ```
 docker run -it --rm --name ubuntu-sshd anti1346/ubuntu2204:sshd bash
@@ -73,6 +69,15 @@ docker run -it --rm --name ubuntu-sshd anti1346/ubuntu2204:sshd bash
 ##### docker container ip
 ```
 docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ubuntu-sshd
+```
+
+### entering a running docker container
+```
+docker exec -it ubuntu-sshd bash
+```
+##### ssh connect
+```
+ssh ubuntu@localhost -p 2222
 ```
 ##### ssh access info
 ```
