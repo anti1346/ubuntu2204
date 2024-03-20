@@ -67,4 +67,4 @@ RUN mkdir /var/run/sshd \
 EXPOSE 22
 
 # 컨테이너가 시작될 때 systemd를 사용하여 SSH 서버 시작
-CMD ["/sbin/init"]
+CMD ["/usr/sbin/init"]
