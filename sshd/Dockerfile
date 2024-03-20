@@ -66,5 +66,5 @@ RUN mkdir /var/run/sshd \
 # SSH 포트 열기
 EXPOSE 22
 
-# 컨테이너가 시작될 때 systemd를 사용하여 SSH 서버 시작
-CMD ["/usr/sbin/init"]
+# systemd를 기본 명령으로 사용하도록 설정
+CMD ["/lib/systemd/systemd"]

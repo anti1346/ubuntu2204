@@ -2,16 +2,20 @@ version: '3.8'
 services:
 
   ubuntu-sshd:
+    image: anti1346/ubuntu2204:sshd
     build:
       context: .
       args:
         SSH_USER: ${SSH_USER}
         SSH_PASSWORD: ${SSH_PASSWORD}
-    image: anti1346/ubuntu2204:sshd
+    restart: always
     container_name: ubuntu-sshd
     hostname: ubuntu-sshd
     privileged: true
-    command: /usr/sbin/init
+    environment:
+      - SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
+    volumes:
+      - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
     ports:
       - 2223:22
     networks:
