@@ -17,7 +17,7 @@ services:
     volumes:
       - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
     ports:
-      - 2223:22
+      - 2222:22
     networks:
       - ubuntu_net
 
