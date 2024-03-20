@@ -11,7 +11,7 @@ services:
     container_name: ubuntu-sshd
     hostname: ubuntu-sshd
     privileged: true
-    command: /usr/sbin/sshd -D
+    command: /sbin/init
     ports:
       - 2223:22
     networks:
