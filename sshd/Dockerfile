@@ -6,6 +6,8 @@ LABEL website="sangchul.kr"
 
 # 환경 변수 설정
 ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Seoul
+
 ARG SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD:-root}
 ARG SSH_USER=${SSH_USER:-ubuntu}
 ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
@@ -13,14 +15,14 @@ ARG SSH_PASSWORD=${SSH_PASSWORD:-ubuntu}
 ENV SSH_ROOT_PASSWORD=${SSH_ROOT_PASSWORD}
 ENV SSH_USER=${SSH_USER}
 ENV SSH_PASSWORD=${SSH_PASSWORD}
-ENV TZ=Asia/Seoul
 
 # root 권한으로 진행
 USER root
 
 # 패키지 소스 업데이트 및 필요한 패키지 설치
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list \
-    && apt-get update && apt-get install -y --no-install-recommends \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
         systemd \
         build-essential \
         openssh-server \

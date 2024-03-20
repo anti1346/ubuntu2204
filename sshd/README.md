@@ -8,6 +8,10 @@ docker buildx create --use
 ```
 docker buildx build --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:sshd --no-cache --push .
 ```
+##### docker pull
+```
+docker pull anti1346/ubuntu2204:sshd
+```
 ### docker inspect
 ```
 docker inspect anti1346/ubuntu2204:sshd --format='{{.Architecture}}'
