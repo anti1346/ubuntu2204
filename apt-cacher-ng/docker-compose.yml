@@ -2,14 +2,15 @@ version: '3.8'
 
 services:
   apt-cacher-ng:
-    image: anti1346/ubuntu2204:apt-cacher-ng
-    # image: sameersbn/apt-cacher-ng
+    image: sameersbn/apt-cacher-ng
     container_name: apt-cacher-ng
+    hostname: apt-cacher-ng
     restart: always
     volumes:
-    - apt-cacher-ng:/var/cache/apt-cacher-ng
+      - /usr/share/zoneinfo/Asia/Seoul:/etc/localtime:ro
+      - apt-cacher-ng:/var/cache/apt-cacher-ng
     ports:
-    - "3142:3142"
+      - "3142:3142"
 
 volumes:
   apt-cacher-ng:
