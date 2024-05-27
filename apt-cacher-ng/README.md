@@ -32,6 +32,7 @@ root / root
 ubuntu / ubuntu
 ```
 
+## Docker Compose build
 #### docker-compose build
 ```
 docker-compose build --no-cache
