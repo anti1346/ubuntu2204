@@ -6,13 +6,10 @@
 docker buildx create --use
 ```
 ```
-docker buildx build --no-cache --platform linux/amd64,linux/arm64 \
---tag anti1346/ubuntu2204:apt-cacher-ng --push .
+docker buildx build --no-cache --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:apt-cacher-ng --push .
 ```
 ```
-docker buildx build --no-cache --platform linux/amd64,linux/arm64 \
---tag anti1346/ubuntu2204:apt-cacher-ng \
---push --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu .
+docker buildx build --no-cache --platform linux/amd64,linux/arm64 --tag anti1346/ubuntu2204:apt-cacher-ng --push --build-arg SSH_USER=ubuntu --build-arg SSH_PASSWORD=ubuntu .
 ```
 #### Docker pull
 ```
