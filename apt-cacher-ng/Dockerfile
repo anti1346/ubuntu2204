@@ -16,18 +16,19 @@ USER root
 
 RUN apt-get update \
     && apt-get install -y \
+        apt-utils \
         sudo \
-        curl \
+        passwd \
         wget \
-        ssh \
-        vim \
+        curl \
         procps \
-        net-tools \
         iputils-ping \
         dnsutils \
-        git \
+        net-tools \
         locales \
         apt-cacher-ng \
+        ssh \
+        vim \
     && apt-get clean \
     && apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
