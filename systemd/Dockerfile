@@ -30,9 +30,13 @@ RUN apt-get update \
 # 표준 시간대 설정
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+RUN sed -i -e 's/^#PermitRootLogin prohibit-password/PermitRootLogin yes/' \
+    -e 's/^#PasswordAuthentication yes/PasswordAuthentication yes/' \
+    -e 's/^UsePAM yes/#UsePAM yes/' "/etc/ssh/sshd_config"
+
 # root 사용자의 비밀번호를 설정하고 bash 프롬프트를 구성
-RUN echo "root:$SSH_ROOT_PASSWORD" | chpasswd \
-    && echo 'export PS1="\[\e[33m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\]:\[\033[01;31m\]\W\[\e[m\]$ "' >> ~/.bashrc
+RUN echo "root:${SSH_ROOT_PASSWORD}" | chpasswd \
+    && echo 'export PS1="\[\e[33m\]\u\[\e[m\]\[\e[37m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\]:\[\033[01;31m\]\W\[\e[m\]$ "' >> /root/.bashrc
 
 EXPOSE 22
 
